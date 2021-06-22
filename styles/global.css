@@ -25,6 +25,7 @@ html{
 }
 
 body{
+    display: flex;
     height: 100vh; /* vh = View Height; vw = View Width; */
     background: var(--background);
 }
@@ -81,7 +82,7 @@ button:hover, .button:hover{
 }
 
 button > img,
-button > img{
+.button > img{
     margin-right: 1rem;
     width: 2rem;
 }
