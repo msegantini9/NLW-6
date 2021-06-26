@@ -49,7 +49,7 @@
 #question-form form{
     border: 0.2px solid var(--grey-blue);
     padding: 1.6rem;
-    border-radius: 0 .8rem .8rem .8rem;
+    border-radius: 0 1.8rem 1.8rem 1.8rem;
     margin-bottom: 1.6rem;
 }
 
@@ -96,8 +96,8 @@
 /* Questions */
 .question-wrapper{
     background: var(--light-blue);
-    margin-bottom: .8rem;
-    border-radius: 0 .8rem .8rem .8rem;
+    margin-bottom: 2.4rem;
+    border-radius: 0 1.8rem 1.8rem 1.8rem;
     padding: 2.4rem;
 }
 
@@ -113,7 +113,15 @@
     display: flex;
     align-items: center;
 
+    font-size: 2rem;
+
     min-height: 5.2rem;
+
+    width: 95%;
+
+    margin-bottom: 1.6rem;
+
+    font-family: 'Poppins', sans-serif;
 }
 
 .question-wrapper .question-content .user{
@@ -139,6 +147,7 @@
 .question-wrapper .actions > a{
     display: flex;
     align-items: center;
+    color:var(--black);
 }
 
 .question-wrapper .actions > a > img{
@@ -156,4 +165,160 @@
 
 .question-wrapper.read .question-content .user{
     background: var(--grey-blue);
+}
+
+/* answers */
+.question-wrapper .answer-wrapper{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.question-wrapper .answer-wrapper #answer-form{
+    display: flex;
+    align-items:flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+
+    width: 100%;
+}
+.question-wrapper .answer-wrapper #answer-form h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: var(--black);
+    font-weight: 400;
+    line-height: 4.2rem;
+
+
+    margin-bottom: 0.8rem;
+}
+
+.question-wrapper .answer-wrapper #answer-form form{
+    /* border: 0.2px solid var(--grey-blue); */
+    padding: 1.2rem;
+    border-radius: 1.6rem;
+    margin-bottom: 2.4rem;
+
+    background-color: var(--blue-line);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    width: 100%;
+}
+
+.question-wrapper .answer-wrapper #answer-form form textarea{
+    resize: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+}
+.question-wrapper .answer-wrapper #answer-form form textarea:placeholder{
+    color: var(--grey-blue);
+}
+
+.question-wrapper .answer-wrapper #answers-form form footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.question-wrapper .answer-wrapper #answer-form form footer button{
+    height: 4rem;
+    padding: .8rem 2.4rem;
+
+    line-height: 2.4rem;
+}
+.question-wrapper.read .answer-wrapper #answer-form form,
+.question-wrapper.read .answer-wrapper #answers .answers-content,
+.question-wrapper.read .answer-wrapper #line {
+    background: var(--blue-white-line);
+}
+
+.question-wrapper .answer-wrapper #answers{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+}
+
+.question-wrapper .answer-wrapper #answers .answers-content{
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 1.6rem 1.8rem;
+    margin-bottom: 0.8rem;
+    /* border: 0.2px solid var(--grey-blue); */
+    border-radius: 1.6rem;
+
+    background-color: var(--blue-line);
+}
+
+.question-wrapper .answer-wrapper #answers .answers-content p{
+    word-break: break-word;
+    display: flex;
+    align-items: center;
+    min-height: 2.2rem;
+
+    font-size: 1.6rem;
+}
+.question-wrapper .answer-wrapper #answers .answers-content .actions{
+    align-items: flex-end;
+}
+
+/* empty-question */
+.no-questions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.no-questions img{
+    width: 14.9rem;
+    height: 13.5rem;
+
+    margin-top: 3.6rem;
+    margin-bottom: 1.2rem;
+}
+
+.no-questions h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+    color: var(--black);
+    font-weight: 600;
+    line-height: 2.7rem;
+
+    margin-bottom: 1.3rem;
+}
+
+.no-questions p{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.4rem;
+    color: var(--grey-dark);
+    font-weight: 400;
+    line-height: 1.9rem;
+
+    width: 27.7rem;
+}
+
+#line{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    background-color: var(--blue-line);
+    width: 100%;
+    height: 2px;
+
+    margin: 1.6rem 0;
 }

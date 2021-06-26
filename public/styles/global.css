@@ -21,6 +21,10 @@ html{
     --grey-light: #E5EAF1;
     --grey-medium: #eaecf2;
 
+    --white-medium: #f2f7ff;
+    --blue-line: #d6e3f7;
+    --blue-white-line: #dddfe4;
+
     /* 1rem = 16px (User Agent) = 100% (User Agent) */
     font-size: 62.5%; /* 10px = 62.5% */
 }

@@ -5,6 +5,8 @@ const modal = Modal()
 const modalTitle = document.querySelector(".modal h2")
 const modalDescription = document.querySelector(".modal p")
 const modalButton = document.querySelector(".modal .buttons button")
+const sendButton = document.querySelector("#question-form button")
+const roomId = document.querySelector("#room-id").dataset.id
 
 
 //Pegar todos o botões que existem com a classe check
@@ -30,7 +32,6 @@ function handleClick(event, check = true){
     event.preventDefault()
     const text = check ? "Marcar como lida" : "Excluir"
     const slug = check ? "check" : "delete"
-    const roomId = document.querySelector("#room-id").dataset.id
     const questionId = event.target.dataset.id
 
     const form = document.querySelector(".modal form")
@@ -45,3 +46,5 @@ function handleClick(event, check = true){
     //abrir modal
     modal.open()
 }
+
+sendButton.addEventListener("click", questionVerify)

@@ -1,0 +1,101 @@
+<section id="questions">
+    <h2 class="sr-only">Perguntas da comunidade</h2>
+    <div class="questions">
+
+        <% questions.forEach(question => { %>
+            
+            <div class="question-wrapper">
+                <div class="question-content">
+                    <div class="user">
+                        <img src="/images/user.svg" alt="Avatar">
+                    </div>
+                    <div class="question">
+                        <p><%= question.title %> </p>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a href="#" class="check" data-id="<%= question.id %>">
+                        <img src="/images/check.svg" alt="Marcar como lida">
+                        Marcar como lida
+                    </a>
+                    <a href="#" class="delete" data-id="<%= question.id %>">
+                        <img src="/images/trash.svg" alt="Excluir">
+                        Excluir
+                    </a>
+                </div>
+                <div class="answer-wrapper">
+                    <div id="line"></div>
+                    <section id="answer-form">
+                        <h2>Responder</h2>
+                        <form action="" onclick="answerSend()">
+                            <label class="sr-only" for-id="answer">Digite sua resposta</label>
+                            <textarea name="answer" id="answer" placeholder="Digite sua resposta"></textarea>
+                            <footer>
+                                <button>></button>
+                            </footer>
+                        </form>
+                    </section>
+                    <section id="answers">
+                        <div class="answers-content">
+                            <p>JavaScript é uma linguagem de programação que permite a você implementar itens complexos em páginas web </p>
+                            <div class="actions">
+                                <a href="#" class="delete">
+                                    <img src="/images/trash.svg" alt="Excluir">
+                                    Excluir
+                                </a>
+                            </div>    
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+        <% }); %> 
+        
+        <% questionsRead.forEach(questionRead => { %>
+
+            <div class="question-wrapper read">
+            <div class="question-content">
+                <div class="user">
+                    <img src="/images/user.svg" alt="Avatar">
+                </div>
+                <div class="question">
+                    <p><%= questionRead.title %> </p>
+                </div>
+            </div>
+            <div class="actions">
+                <a href="#" class="delete" data-id="<%= questionRead.id %>">
+                    <img src="/images/trash.svg" alt="Excluir">
+                    Excluir
+                </a>
+            </div>
+            <div class="answer-wrapper">
+                <div id="line"></div>
+                <section id="answer-form">
+                    <h2>Responder</h2>
+                    <form action="" onclick="answerSend()">
+                        <label class="sr-only" for-id="answer">Digite sua resposta</label>
+                        <textarea name="answer" id="answer" placeholder="Digite sua resposta"></textarea>
+                        <footer>
+                            <button>></button>
+                        </footer>
+                    </form>
+                </section>
+                <section id="answers">
+                    <div class="answers-content">
+                        <p>JavaScript é uma linguagem de programação que permite a você implementar itens complexos em páginas web </p>
+                        <div class="actions">
+                            <a href="#" class="delete">
+                                <img src="/images/trash.svg" alt="Excluir">
+                                Excluir
+                            </a>
+                        </div>    
+                    </div>
+                </section>
+            </div>
+
+            </div>
+
+        <% }); %> 
+
+    </div>
+</section>
