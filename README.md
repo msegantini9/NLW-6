@@ -62,9 +62,14 @@ O layout da aplicação está disponível no Figma:
 <h3 id="web">Web</h3>
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/" width="400px">
-
-  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./assets/sucesso-web.svg" width="400px">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/ogin-create" width="400px">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/create" width="400px">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/no-questions" width="400px">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/no-questions-dark" width="400px">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/questions" width="400px">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/questions-dark" width="400px">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/answer" width="400px">
+  <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/answer-dark" width="400px">
 </p>
 
 <h2 id="tecnologias">🛠 Tecnologias</h2>
