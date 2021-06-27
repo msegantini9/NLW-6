@@ -43,7 +43,7 @@
 
 <h2 id="objetivo"📔 Sobre o projeto</h2>
 
-♻️ Roquet.q -  um website com o proprósito de permitir pessoas à enviar anônimamente perguntas ao criador da sala
+📋 Roquet.q -  um website com o proprósito de permitir pessoas à enviar anônimamente perguntas ao criador da sala
 
 As pessoas poderão usar o site de duas formas, criando uma sala ou entrando em uma já criada, apenas inserindo uma senha de seu gosto
 
