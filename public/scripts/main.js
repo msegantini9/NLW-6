@@ -12,7 +12,7 @@ const roomId = document.querySelector("#room-id").dataset.id
 
 //Pegar todos o botões que existem com a classe check
 const checkButtons = document.querySelectorAll(".actions.questions a.check")
-const deleteButtons = document.querySelectorAll(".actions.questions .delete")
+const deleteButtons = document.querySelectorAll(".actions.questions a.delete")
 const answerDeleteButtons = document.querySelectorAll("#answers .actions a.delete")
 
 console.log(answerDeleteButtons)
@@ -55,7 +55,7 @@ function handleClick(event, action = "check"){
     modalDescription.innerHTML = `Tem certeza que deseja ${text.toLowerCase()} esta pergunta?`
     modalButton.innerHTML = `Sim, ${text.toLowerCase()}`
 
-    action = "check" ? modalButton.classList.remove("red") : modalButton.classList.add("red")
+    action == "delete" ? modalButton.classList.add("red") : modalButton.classList.remove("red")
 
     //abrir modal
     modal.open()

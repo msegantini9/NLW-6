@@ -2,6 +2,13 @@
     max-width: min(112rem, 90%);
 }
 
+.body.night-mode{
+    display: flex;
+    height: 100%; /* vh = View Height; vw = View Width; */
+    background: var(--background);
+    width: 100vw;
+}
+
 #room header{
     width: 100%;
 

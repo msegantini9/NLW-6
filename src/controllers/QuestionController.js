@@ -27,6 +27,7 @@ module.exports = {
             }else if(action == "check"){
 
                 await db.run(`UPDATE questions SET read = 1 WHERE id = ${questionId}`)
+                console.log("Funcionou o update")
             
             }else if(action == "answerDelete"){
                 await db.run(`DELETE FROM answers WHERE answerId = ${questionId}`)

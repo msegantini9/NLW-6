@@ -1,3 +1,7 @@
+body{
+    height: 100vh;
+}
+
 .content{
     display: grid;
     grid-template-columns: 60% 40%;
@@ -18,19 +22,18 @@ header{
     background: url('/images/home-bg-img-white.svg') no-repeat top/contain;
     background-position-x: -10rem;
 }
-#bg.night-mode{
-    background: url('/images/home-bg-img.svg') no-repeat top/contain;
-}
-
 main{
     grid-area: right;
 
     display: flex;
     align-items: center;
-    margin-top: -12rem;
 }
 
 main .container{
+    /* display: inline-flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center; */
     width: min(36.3rem, 100%);
 }
 

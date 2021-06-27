@@ -32,9 +32,9 @@ html{
 
 body, .body{
     display: flex;
-    height: 100vh; /* vh = View Height; vw = View Width; */
+    height: 100%; /* vh = View Height; vw = View Width; */
     background: var(--background);
-    width: 100vw;
+    width: 98vw;
 }
 .body.night-mode{
     --black: #d1d1d1;
@@ -52,11 +52,11 @@ body, .body{
     --grey-dark: #7b7b7b;
     --grey-blue: #4b525c;
     --grey-light: #E5EAF1;
-    --grey-medium: #f2f7ff;
+    --grey-medium: #97989a;
 
     --white-medium: #f2f7ff;
     --blue-line: #2d353d;
-    --blue-white-line: #dddfe4;
+    --blue-white-line: #737373;
 
     /* 
     #0C1222
@@ -66,6 +66,10 @@ body, .body{
     #818C98
     #99A5B1    
     */
+    display: flex;
+    height: 100%; /* vh = View Height; vw = View Width; */
+    background: var(--background);
+    width: 100vw;
 }
 
 body, button, input, textarea{
