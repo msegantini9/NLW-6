@@ -60,6 +60,7 @@
     width: 100%;
 
     outline: none;
+    color: var(--black);
 }
 
 #question-form form textarea:placeholder{
@@ -215,6 +216,8 @@
     background: transparent;
     width: 100%;
     outline: none;
+
+    color: var(--black);
 }
 .question-wrapper .answer-wrapper #answer-form form textarea:placeholder{
     color: var(--grey-blue);

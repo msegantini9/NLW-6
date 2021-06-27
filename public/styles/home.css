@@ -15,8 +15,11 @@ header{
 #bg{
     grid-area: left;
 
-    background: url('/images/home-bg-img.svg') no-repeat top/contain;
+    background: url('/images/home-bg-img-white.svg') no-repeat top/contain;
     background-position-x: -10rem;
+}
+#bg.night-mode{
+    background: url('/images/home-bg-img.svg') no-repeat top/contain;
 }
 
 main{
@@ -42,6 +45,7 @@ input{
     border: 0.2rem solid var(--grey-blue);
     padding: 0 1.6rem;
     outline: none;
+    background: var(--grey-light);
 }
 
 input, button, .button{

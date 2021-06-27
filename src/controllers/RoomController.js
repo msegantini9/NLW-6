@@ -24,50 +24,69 @@ module.exports = {
                     ${parseInt(roomId)}, 
                     '${pass}'
                 )`)
+
+                await db.run(`INSERT INTO user(
+                    room, 
+                    pass
+                    ) VALUES (
+                    ${parseInt(roomId)},
+                    "${pass}")
+                `)
+
+                userId = await db.get(`SELECT id FROM user WHERE room = ${roomId} and pass = "${pass}"`)
             }
         }
 
         await db.close()
 
-        res.redirect(`/room/${roomId}/empty-questions`)
+        res.redirect(`/room/${roomId}/${userId.id}`)
     },
 
     async open(req, res) {
         const db = await Database()
         const roomId = req.params.room
-        let content = req.params.content
         const questions = await db.all(`SELECT * FROM questions WHERE room = ${roomId} and read = 0`)
         const questionsRead = await db.all(`SELECT * FROM questions WHERE room = ${roomId} and read = 1`)
+        const answers = await db.all(`SELECT * FROM answers WHERE room = ${roomId}`)
+        let isNoQuestions = true
+        const userId = req.params.user
 
         if(questions.length == 0){
             if(questionsRead.length == 0){
-                content = "empty-questions"
+                isNoQuestions = true
             }
-        }
-        else{
-            content = "questions"
+        }else{
+            isNoQuestions = false
         }
 
-        res.render("room", {roomId: roomId, content: content, questions: questions, questionsRead: questionsRead})
+
+        res.render("room", {roomId: roomId, questions: questions, questionsRead: questionsRead, isNoQuestions: isNoQuestions, answers:answers, userId: userId})
     },
 
     async enter(req, res){
-        const db = Database()
+        const db = await Database()
         const roomId = req.body.roomId
-        const pasId = req.body.passId
-        let content = "empty-questions"
-        const questions = await db.all(`SELECT * FROM questions WHERE room = ${roomId} and read = 0`)
-        const questionsRead = await db.all(`SELECT * FROM questions WHERE room = ${roomId} and read = 1`)
+        const pass = req.body.passId
+        let userId
 
-        if(questions.length == 0){
-            if(questionsRead.length == 0){
-                content = "empty-questions"
-            }
-        }
-        else{
-            content = "questions"
-        }
+        const passExists = await db.all(`SELECT * FROM user`)
+        isPass = passExists.some(passExist => passExist.pass == pass)
 
-        res.redirect(`/room/${roomId}/${content}`)
+        console.log(passExists)
+        console.log(isPass)
+
+        if(!isPass){
+            await db.run(`INSERT INTO user(
+                room, 
+                pass
+            ) VALUES (
+                ${parseInt(roomId)}, 
+                "${pass}"
+            )`)
+        } 
+
+        userId = await db.get(`SELECT id FROM user WHERE room = ${roomId} and pass = "${pass}"`)
+        
+        res.redirect(`/room/${roomId}/${userId.id}`)
     }
 }

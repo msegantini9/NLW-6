@@ -1,4 +1,5 @@
 const Database = require('../db/config')
+const { use } = require('../route')
 
 module.exports = {
     async index(req, res){
@@ -7,15 +8,18 @@ module.exports = {
         const questionId = req.params.question
         const action = req.params.action
         const password = req.body.password
-        let content = "empty-questions"
-        const questions = await db.all(`SELECT * FROM questions WHERE room = ${roomId} and read = 0`)
-        const questionsRead = await db.all(`SELECT * FROM questions WHERE room = ${roomId} and read = 1`)
-
+        const userId = req.params.user
 
         // Verificar se a senha está correta
         const verifyRoom = await db.get(`SELECT * FROM rooms WHERE id = ${roomId}`)
+        let question = await db.get(`SELECT * FROM answers WHERE answerId = ${questionId}`)
 
-        if(verifyRoom.pass == password){
+        let userPassword = await db.get(`SELECT * FROM user WHERE id = ${question.user}`)
+
+        console.log(password)
+        console.log(userPassword.pass)
+        
+        if(verifyRoom.pass == password || password == userPassword.pass){
             if(action == "delete"){
 
                 await db.run(`DELETE FROM questions WHERE id = ${questionId}`)
@@ -24,29 +28,15 @@ module.exports = {
 
                 await db.run(`UPDATE questions SET read = 1 WHERE id = ${questionId}`)
             
+            }else if(action == "answerDelete"){
+                await db.run(`DELETE FROM answers WHERE answerId = ${questionId}`)
+                console.log("Funcionou")
             }
+
+            res.redirect(`/room/${roomId}/${userId}`)
             
-            if(questions.length == 0){
-                if(questionsRead.length == 0){
-                    content = "empty-questions"
-                }
-            }
-            else{
-                content = "questions"
-            }
-
-            res.redirect(`/room/${roomId}/${content}`)
         } else{
-            if(questions.length == 0){
-                if(questionsRead.length == 0){
-                    content = "empty-questions"
-                }
-            }
-            else{
-                content = "questions"
-            }
-
-            res.render('pass-incorrect', {roomId: roomId, content: content})
+            res.render('pass-incorrect', {roomId: roomId, userId:userId})
         }
     },
     async create(req, res){
@@ -54,9 +44,9 @@ module.exports = {
 
         const question = req.body.question
         const roomId = req.params.room
+        const userId = req.params.user
 
-        db.run(`
-            INSERT INTO questions (
+        db.run(`INSERT INTO questions (
                 title,
                 room,
                 read
@@ -67,6 +57,28 @@ module.exports = {
             )
         `)
 
-        res.redirect(`/room/${roomId}/questions`)
+        res.redirect(`/room/${roomId}/${userId}`)
+    },
+    async createAnswer(req, res){
+        const db = await Database()
+
+        const answer = req.body.answer
+        const questionId = req.params.question
+        const roomId = req.params.room
+        const userId = req.params.user
+
+        db.run(`INSERT INTO answers (
+                questionId,
+                room,
+                user,
+                text
+            ) VALUES (
+                ${questionId},
+                ${roomId},
+                ${userId},
+                '${answer}'
+            )`)
+
+        res.redirect(`/room/${roomId}/${userId}`)
     }
 }

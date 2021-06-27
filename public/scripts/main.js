@@ -6,45 +6,57 @@ const modalTitle = document.querySelector(".modal h2")
 const modalDescription = document.querySelector(".modal p")
 const modalButton = document.querySelector(".modal .buttons button")
 const sendButton = document.querySelector("#question-form button")
+const userId = document.querySelector("#userId").dataset.id
 const roomId = document.querySelector("#room-id").dataset.id
 
 
 //Pegar todos o botões que existem com a classe check
-const checkButtons = document.querySelectorAll(".actions a.check")
+const checkButtons = document.querySelectorAll(".actions.questions a.check")
+const deleteButtons = document.querySelectorAll(".actions.questions .delete")
+const answerDeleteButtons = document.querySelectorAll("#answers .actions a.delete")
 
-//Pegar quando o marcar como lido for clicado
+console.log(answerDeleteButtons)
+console.log(deleteButtons)
+console.log(checkButtons)
+console.log(userId)
+
+answerDeleteButtons.forEach(button => {
+    button.addEventListener("click", (event) => handleClick(event, "answerDelete"))
+})
+
 checkButtons.forEach(button => {
     //adicionar a escuta
-    button.addEventListener("click", handleClick)
+    button.addEventListener("click", (event) => handleClick(event, "check"))
 })
-
-
-//Quando o botão delete for clicado ele abre a modal
-const deleteButtons = document.querySelectorAll(".actions .delete")
 
 deleteButtons.forEach(button => {
-    button.addEventListener("click", (event) => handleClick(event, false))
+    button.addEventListener("click", (event) => handleClick(event, "delete"))
 })
 
-function handleClick(event, check = true){
-
-    
+function handleClick(event, action = "check"){
     event.preventDefault()
-    const text = check ? "Marcar como lida" : "Excluir"
-    const slug = check ? "check" : "delete"
+    const text = action == "check" ? "Marcar como lida" : "Excluir"
+    let slug = ""
+
+    if(action == "check"){
+        slug = "check"
+    } else if(action == "delete"){
+        slug = "delete"
+    } else{
+        slug = "answerDelete"
+    }
+
     const questionId = event.target.dataset.id
 
     const form = document.querySelector(".modal form")
-    form.setAttribute("action", `/question/${roomId}/${questionId}/${slug}`)
+    form.setAttribute("action", `/question/${roomId}/${userId}/${questionId}/${slug}`)
 
     modalTitle.innerHTML = `${text} esta pergunta`
     modalDescription.innerHTML = `Tem certeza que deseja ${text.toLowerCase()} esta pergunta?`
     modalButton.innerHTML = `Sim, ${text.toLowerCase()}`
 
-    check ? modalButton.classList.remove("red") : modalButton.classList.add("red")
+    action = "check" ? modalButton.classList.remove("red") : modalButton.classList.add("red")
 
     //abrir modal
     modal.open()
 }
-
-sendButton.addEventListener("click", questionVerify)

@@ -18,70 +18,81 @@
 
         <!-- Scripts -->
         <script src="/scripts/main.js" defer type="module"></script>
+        <script src="/scripts/night-mode.js" defer type="module"></script>
 
         <!-- FONTS -->
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     </head>
     <body>
-        <div id="room" class="content">
-            <header>
-                <a href="/">
-                    <img src="/images/logo.svg" alt="Rocket.Q Logo" />
-                </a>
-                <div class="buttons">
-                    <div class="button outlined" id="room-id" data-id="<%= roomId %>">
-                        #<%= roomId %>
-                        <img src="/images/copy.svg" alt="Copiar numero da sala">
-                    </div>
-                    <a href="/create-pass" class="button">
-                        <img src="/images/users-white.svg" alt="Criar uma sala">
-                        Criar Sala
+        <div class="body">
+
+            <div id="room" class="content">
+                <header>
+                    <a href="/">
+                        <img src="/images/logo-white.svg" id="logo" alt="Rocket.Q Logo" />
                     </a>
-                </div>
-            </header>
-
-            <main>
-                <section id="question-form">
-                    <h2>Faça sua pergunta</h2>
-                    <form action="/question/create/<%= roomId %> " method="POST">
-                        <label class="sr-only" for-id="question">O que você quer perguntar?</label>
-                        <textarea name="question" id="question" placeholder="O que você quer perguntar?"></textarea>
-                    
-                        <footer>
-                            <div>
-                                <img src="/images/lock.svg" alt="Cadeado">
-                                Esta pergunta é anônima
-                            </div>
-                            <button>Enviar</button>
-                        </footer>
-                    </form>
-                </section>
-
-                <%- include(`parts/${content}`) %>
-
-            </main>
-
-        </div>
-
-        <!-- MODAL -->
-
-        <div class="modal-wrapper">
-            <div class="modal">
-                <h2>Excluir Pergunta</h2>
-                <p>Tem certeza que você deseja excluir esta pergunta?</p>
-
-                <form action="" method="POST">
-                    <label for-id="password" class="sr-only">Digite sua senha admin</label>
-                    <input type="password" id="password" name="password" placeholder="Digite sua senha">
-
                     <div class="buttons">
-                        <div class="button grey cancel">Cancelar</div>
-                        <button class="red">Sim, excluir</button>
+                        <div class="button outlined" id="room-id" data-id="<%= roomId %>">
+                            #<%= roomId %>
+                            <img src="/images/copy.svg" alt="Copiar numero da sala">
+                        </div>
+                        <a href="/create-pass" class="button">
+                            <img src="/images/users-white.svg" alt="Criar uma sala">
+                            Criar Sala
+                        </a>
+                        <label class="switch">
+                            <input id="night-mode" class="lamp" type="checkbox" aria-label="night-mode" />
+                            <span class="slider round"></span>
+                        </label>
                     </div>
-                </form>
+                </header>
+    
+                <main>
+                    <section id="question-form">
+                        <h2>Faça sua pergunta</h2>
+                        <form action="/question/create/<%- roomId %>/<%- userId %>" method="POST">
+                            <label class="sr-only" for-id="question">O que você quer perguntar?</label>
+                            <textarea name="question" id="question" placeholder="O que você quer perguntar?"></textarea>
+                        
+                            <footer>
+                                <div>
+                                    <img src="/images/lock.svg" alt="Cadeado">
+                                    Esta pergunta é anônima
+                                </div>
+                                <button>Enviar</button>
+                            </footer>
+                        </form>
+                    </section>
+    
+                    <% if(isNoQuestions){ %>
+                    <%- include(`parts/empty-questions`) %>
+                    <% }else{ %>
+                    <%- include(`parts/questions`) %>
+                    <% } %>
+    
+                </main>
+    
             </div>
-        </div>
+    
+            <!-- MODAL -->
+            <div class="modal-wrapper">
+                <div class="modal">
+                    <h2>Excluir Pergunta</h2>
+                    <p>Tem certeza que você deseja excluir esta pergunta?</p>
+    
+                    <form action="" method="POST">
+                        <label for-id="password" class="sr-only">Digite sua senha admin</label>
+                        <input type="password" id="password" name="password" placeholder="Digite sua senha">
+    
+                        <div class="buttons">
+                            <div class="button grey cancel">Cancelar</div>
+                            <button class="red">Sim, excluir</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
+        </div>
     </body>
 </html>

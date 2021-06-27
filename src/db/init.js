@@ -17,12 +17,17 @@ const initDb = {
         )`);
 
         await db.exec(`CREATE TABLE answers (
-            pass TEXT,
             questionId INT,
-            answerId INT,
-            text TEXT,
-            read INT,
-            room INT  
+            answerId INTEGER PRIMARY KEY AUTOINCREMENT,
+            room INT, 
+            user INT,
+            text TEXT
+        )`);
+
+        await db.exec(`CREATE TABLE user (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            room INT,
+            pass TEXT
         )`);
 
         await db.close()
