@@ -74,7 +74,7 @@ O layout da aplicação está disponível no Figma:
   <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/modal-dark.png" width="400px"/>
 </p>
 
-<h2 id="tecnologias"⚙️ Tecnologias</h2>
+<h2 id="tecnologias">⚙️ Tecnologias</h2>
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
