@@ -41,7 +41,7 @@
  <a href="#rodando">Rodando a aplicação</a>
 </p>
 
-<h2 id="objetivo"📔 Sobre o projeto</h2>
+<h2 id="objetivo">📔 Sobre o projeto</h2>
 
 📋 Roquet.q -  um website com o proprósito de permitir pessoas à enviar anônimamente perguntas ao criador da sala
 
@@ -51,7 +51,7 @@ Projeto desenvolvido durante a **NLW - TOGETHER** oferecida pela [Rocketseat](ht
 O NLW é uma experiência online com muito conteúdo prático, desafios e hacks onde o conteúdo fica disponível durante uma semana.
 
 
-<h2 id="layout🎨 Layout</h2>
+<h2 id="layout"> 🎨Layout</h2>
 
 O layout da aplicação está disponível no Figma:
 
