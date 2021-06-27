@@ -41,7 +41,7 @@
  <a href="#rodando">Rodando a aplicação</a>
 </p>
 
-<h2 id="objetivo">💻 Sobre o projeto</h2>
+<h2 id="objetivo"📔 Sobre o projeto</h2>
 
 ♻️ Roquet.q -  um website com o proprósito de permitir pessoas à enviar anônimamente perguntas ao criador da sala
 
@@ -51,7 +51,7 @@ Projeto desenvolvido durante a **NLW - TOGETHER** oferecida pela [Rocketseat](ht
 O NLW é uma experiência online com muito conteúdo prático, desafios e hacks onde o conteúdo fica disponível durante uma semana.
 
 
-<h2 id="layout">🎨 Layout</h2>
+<h2 id="layout🎨 Layout</h2>
 
 O layout da aplicação está disponível no Figma:
 
@@ -59,7 +59,7 @@ O layout da aplicação está disponível no Figma:
   <img alt="Made by msegantini9" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
 </a>
 
-<h3 id="web">Web</h3>
+<h3 id="web">💻 Web</h3>
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
   <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/login-create.png" width="400px"/>
@@ -74,7 +74,7 @@ O layout da aplicação está disponível no Figma:
   <img alt="NextLevelWeek" title="#NextLevelWeek" src="./public/images/screenshots/modal-dark.png" width="400px"/>
 </p>
 
-<h2 id="tecnologias">🛠 Tecnologias</h2>
+<h2 id="tecnologias"⚙️ Tecnologias</h2>
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
